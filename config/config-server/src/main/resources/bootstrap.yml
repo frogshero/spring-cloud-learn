@@ -1,3 +1,11 @@
 spring:
   application:
     name: configServer
+encrypt:
+#  key: zAS(D$%ws123@#
+  failOnError: false
+  keyStore:
+    location: classpath:server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme

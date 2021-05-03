@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: test
+  config:
+    import: 'optional:configserver:'
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      post:
+        enabled: true

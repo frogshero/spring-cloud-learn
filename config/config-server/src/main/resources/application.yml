@@ -1,6 +1,36 @@
+server:
+  port: 8888
+
+management:
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      post:
+        enabled: true
+
 spring:
   cloud:
     config:
       server:
+        health:
+          repositories:
+            test:
+              name: test
         git:
-          uri: https://github.com/frogshero/spring-cloud-learn/config/repo
+#          uri: https://gitee.com/frogshero/cloud-config
+          uri: git@gitee.com:frogshero/cloud-config.git #ssh协议uri不一样
+#          uri: file:///D:/repo2
+          basedir: /wgf/config0 #本地clone目录
+          searchPaths: '{application}' #repo的子目录
+#          username: xxxx
+#          password: yyyy
+          timeout: 5
+          refreshRate: 5 #default 0
+          cloneOnStart: true
+          deleteUntrackedBranches: true
+          skipSslValidation: true
+          force-pull: true
