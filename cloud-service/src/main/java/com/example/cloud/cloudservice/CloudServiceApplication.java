@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CloudServiceApplication {
 
-	//要制定spring.profiles.active
+	//要设置spring.profiles.active
 	@Value("${b1.b2.b3}")
 	private String bbb;
 
