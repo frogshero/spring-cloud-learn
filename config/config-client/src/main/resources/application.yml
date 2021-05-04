@@ -11,6 +11,9 @@ spring:
 #      retry:
 #      request-read-timeout
 #      request-connect-timeout
+    bus:
+      trace:
+        enabled: true
 
 management:
   endpoints:
