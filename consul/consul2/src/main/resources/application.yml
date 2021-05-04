@@ -1,0 +1,43 @@
+server:
+  port: 9080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: consul2
+  config:
+    import: 'optional:consul:'
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      health-indicator:
+        include-services-query: false
+      discovery:
+        instance-id: service2-1
+        serviceName: service2
+        #避免[nio-8081-exec-2] o.s.web.servlet.PageNotFound : No mapping for GET /actuator/health
+        healthCheckPath: ${management.endpoints.web.base-path}/health
+        healthCheckInterval: 15s
+        metadata:
+          aaa: bbb
+          bbb: ccc
+#        health-check-headers:
+#          X-Config-Token:
+#            - "6442e58b-d1ea-182e-cfa5-cf9cddef0722"
+#            - "Some other value"
+management:
+  health:
+    consul:
+      enabled: false
+  server:
+    port: 9081
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: '*'
+  endpoint:
+    env:
+      post:
+        enabled: true
