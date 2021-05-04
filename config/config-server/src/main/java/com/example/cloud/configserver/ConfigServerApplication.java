@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
-@EnableConfigServer
+@EnableConfigServer  //用注解加载配置，其他用spring.factories加载
 public class ConfigServerApplication {
 
 	public static void main(String[] args) {

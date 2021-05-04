@@ -5,13 +5,19 @@ spring:
     import: 'optional:configserver:'
   profiles:
     active: dev
+  cloud:
+    config:
+      fail-fast: true
+#      retry:
+#      request-read-timeout
+#      request-connect-timeout
 
 management:
   endpoints:
     web:
       base-path: "/admin"
       exposure:
-        include: "*"
+        include: '*'
   endpoint:
     env:
       post:
